@@ -41,5 +41,12 @@ cp /usr/lib64/libonig.so.5 lib/
 mkdir -p lib/php/7.${PHP_MINOR_VERSION}
 cp -a /usr/lib64/php/modules lib/php/7.${PHP_MINOR_VERSION}/
 
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+./composer.phar global require aws/aws-sdk-php
+./composer.phar global clear-cache
+cp -a /root/.composer lib/composer
+
 zip -r /opt/layer/php7${PHP_MINOR_VERSION}.zip .
 

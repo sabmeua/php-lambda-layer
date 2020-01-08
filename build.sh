@@ -20,4 +20,11 @@ cp /usr/lib64/libpq.so.5 lib/
 
 cp -a /usr/lib64/php lib/
 
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+./composer.phar global require aws/aws-sdk-php
+./composer.phar global clear-cache
+cp -a /root/.composer lib/composer
+
 zip -r /opt/layer/php71.zip .
