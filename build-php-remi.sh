@@ -23,7 +23,7 @@ yum install -y --disablerepo="*" --enablerepo="remi,remi-php7${PHP_MINOR_VERSION
 mkdir /tmp/layer
 cd /tmp/layer
 cp /opt/layer/bootstrap bootstrap
-sed "s/PHP_MINOR_VERSION/${PHP_MINOR_VERSION}/g" /opt/layer/php.ini >php.ini
+cp /opt/layer/php.ini php.ini
 
 mkdir bin
 cp /usr/bin/php bin/
@@ -38,8 +38,8 @@ cp /usr/lib64/libargon2.so.0 lib/
 cp /usr/lib64/libpq.so.5 lib/
 cp /usr/lib64/libonig.so.5 lib/
 
-mkdir -p lib/php/7.${PHP_MINOR_VERSION}
-cp -a /usr/lib64/php/modules lib/php/7.${PHP_MINOR_VERSION}/
+mkdir -p lib/php
+cp -a /usr/lib64/php/modules lib/php/
 
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 php composer-setup.php
