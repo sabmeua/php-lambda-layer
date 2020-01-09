@@ -25,7 +25,7 @@ class LambdaMarshaller
         if (is_resource($methodResponse) && get_resource_type($methodResponse) == 'stream') {
             return [$methodResponse, 'application/unknown'];
         } else {
-            return json_encode($methodResponse, true); # application/json is assumed
+            return [json_encode($methodResponse, true), 'application/json'];
         }
     }
 }
