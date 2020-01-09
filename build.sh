@@ -17,6 +17,7 @@ done
 
 cp /usr/lib64/libedit.so.0 lib/
 cp /usr/lib64/libpq.so.5 lib/
+cp /opt/layer/lib/*.php lib/
 
 cp -a /usr/lib64/php lib/
 mv lib/php/7.1/* lib/php/
