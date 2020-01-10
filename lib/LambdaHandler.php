@@ -38,7 +38,7 @@ class LambdaHandler
             $response = call_user_func($fun, $request, $context);
             return LambdaMarshaller::marshallResponse($response);
         } catch (Error $e) {
-            throw new LambdaErrors\LambdaCriticalException($e);
+            throw new LambdaErrors\LambdaHandlerCriticalException($e);
         } catch (Exception $e) {
             throw new LambdaErrors\LambdaHandlerError($e);
         }
